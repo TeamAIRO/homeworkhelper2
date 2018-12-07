@@ -103,8 +103,7 @@ function listEvents(auth) {
   });
 }
 
-function writeEvents(auth) {
-  const calendar = google.calendar({version: 'v3', auth});
+
 
 /* chirayu add */
 
