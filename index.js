@@ -187,8 +187,9 @@ calendar.events.insert({
     return;
   }
   console.log('Event created: %s', event2.htmlLink);
-}
 });
+  
+}
 
 
 /* chirayu add */
