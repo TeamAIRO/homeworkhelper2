@@ -134,6 +134,7 @@ var event = {
       {'method': 'popup', 'minutes': 10},
     ],
   },
+};
 var event2 = {
   'summary': subject2,
   'location': '800 Howard St., San Francisco, CA 94103',
@@ -171,6 +172,7 @@ calendar.events.insert({
     return;
   }
   console.log('Event created: %s', event.htmlLink);
+});
 calendar.events.insert({
   auth: auth,
   calendarId: 'primary',
