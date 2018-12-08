@@ -101,15 +101,15 @@ function writeEvents(auth) {
   var today = new Date();
   
 var event = {
-  'summary': subject1 + (today),
+  'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': '2018-12-08T09:00:00-07:00',
+    'dateTime': today.getFullYear()+'-12-08T09:00:00-07:00',
     'timeZone': 'America/Los_Angeles',
   },
   'end': {
-    'dateTime': '2018-12-08T17:00:00-07:00',
+    'dateTime': today.getFullYear()+'-12-08T09:00:00-07:00',
     'timeZone': 'America/Los_Angeles',
   },
   'recurrence': [
