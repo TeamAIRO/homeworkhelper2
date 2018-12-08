@@ -109,8 +109,9 @@ function writeEvents(auth) {
   else{
     date = today.getFullYear()+ '-' + (today.getMonth()+1) + '-0' + (today.getDate() + date1) + 'T09:00:00-07:00';
   }
-  let arr = [priority1, priority2];
+  let arr = [priority1, priority2]
   arr.sort();
+  if(arr[0] = priority1){
 var event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
@@ -165,6 +166,7 @@ var event2 = {
     ],
   },
 };
+  }
 calendar.events.insert({
   auth: auth,
   calendarId: 'primary',
@@ -175,7 +177,6 @@ calendar.events.insert({
     return;
   }
   console.log('Event created: %s', event.htmlLink);
-}
 });
 calendar.events.insert({
   auth: auth,
@@ -188,10 +189,87 @@ calendar.events.insert({
   }
   console.log('Event created: %s', event2.htmlLink);
 });
-  
+
 }
-
-
+else{
+  var event = {
+  'summary': subject1,
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': date1,
+    'timeZone': 'America/New_York',
+  },
+  'end': {
+    'dateTime': date1,
+    'timeZone': 'America/New_York', 
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'},
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+};
+var event2 = {
+  'summary': subject2,
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': date2,
+    'timeZone': 'America/New_York',
+  },
+  'end': {
+    'dateTime': date2,
+    'timeZone': 'America/New_York', 
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'},
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+};
+  }
+calendar.events.insert({
+  auth: auth,
+  calendarId: 'primary',
+  resource: event,
+}, function(err, event) {
+  if (err) {
+    console.log('There was an error contacting the Calendar service: ' + err);
+    return;
+  }
+  console.log('Event created: %s', event.htmlLink);
+});
+calendar.events.insert({
+  auth: auth,
+  calendarId: 'primary',
+  resource: event2,
+}, function(err, event2) {
+  if (err) {
+    console.log('There was an error contacting the Calendar service: ' + err);
+    return;
+  }
+  console.log('Event created: %s', event2.htmlLink);
+});
+}
 /* chirayu add */
 
 const restService = express();
@@ -223,7 +301,6 @@ restService.post("/hw", function(req, res) {
   }
   else if(type1 == "small project"){
     num1 = 3;
-  }
   else{
     num1 = 2;
   }
@@ -234,7 +311,6 @@ restService.post("/hw", function(req, res) {
   }
   else if(type2 == "small project"){
     num2 = 3;
-  }
   else{
     num2 = 2;
   }
