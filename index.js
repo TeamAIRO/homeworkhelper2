@@ -190,7 +190,8 @@ calendar.events.insert({
   }
   console.log('Event created: %s', event2.htmlLink);
 });
-
+  }
+  else{
   event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
@@ -218,8 +219,6 @@ calendar.events.insert({
     ],
   },
 };
-  }
-  else{
 event2 = {
   'summary': subject2,
   'location': '800 Howard St., San Francisco, CA 94103',
