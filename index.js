@@ -113,7 +113,7 @@ function writeEvents(auth) {
   }
   let arr = [priority1, priority2]
   arr.sort();
-  if(arr[0] = priority1){
+  if(arr[0] == priority1){
 event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
@@ -192,8 +192,8 @@ calendar.events.insert({
   console.log('Event created: %s', event2.htmlLink);
 });
 
-}
-else{
+  }
+  else{
   event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
