@@ -101,7 +101,7 @@ function writeEvents(auth) {
   var today = new Date();
   
 var event = {
-  'summary': subject1 + ,
+  'summary': subject1
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   var date;
