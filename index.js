@@ -95,11 +95,11 @@ function listEvents(auth) {
   });
 }
 
-function writeEvents(auth, subject) {
+function writeEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
 
 var event = {
-  'summary': subject,
+  'summary': 'spanish',
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
@@ -164,14 +164,10 @@ restService.use(bodyParser.json());
 restService.post("/hw", function(req, res) {
   var type1 = req.body.queryResult.parameters.type1;
   var type2 = req.body.queryResult.parameters.type2;
-  var type3 = req.body.queryResult.parameters.type3;
-  var type1 = req.body.queryResult.parameters.type1;
   var subject1 = req.body.queryResult.parameters.subject1;
   var subject2 = req.body.queryResult.parameters.subject2;
-  var subject3 = req.body.queryResult.parameters.subject3;
   var date1 = req.body.queryResult.parameters.date1;
   var date2 = req.body.queryResult.parameters.date2;
-  var date3 = req.body.queryResult.parameters.date3;
   var speech =
     req.body.queryResult &&
     req.body.queryResult.parameters &&
@@ -187,7 +183,7 @@ fs.readFile('credentials.json', (err, content) => {
  
   //authorize(JSON.parse(content), listEvents);
 
-  authorize(JSON.parse(content), writeEvents(subject1));
+  authorize(JSON.parse(content), writeEvents);
 });
   
 /*chirayu add */
