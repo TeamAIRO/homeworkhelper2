@@ -175,7 +175,7 @@ calendar.events.insert({
     return;
   }
   console.log('Event created: %s', event.htmlLink);
-  });
+}
 });
 calendar.events.insert({
   auth: auth,
