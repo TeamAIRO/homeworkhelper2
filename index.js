@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 /* chirayu add */
-
+var subject1;
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
@@ -99,7 +99,7 @@ function writeEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
 
 var event = {
-  'summary': 'spanish',
+  'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
@@ -164,7 +164,7 @@ restService.use(bodyParser.json());
 restService.post("/hw", function(req, res) {
   var type1 = req.body.queryResult.parameters.type1;
   var type2 = req.body.queryResult.parameters.type2;
-  var subject1 = req.body.queryResult.parameters.subject1;
+  subject1 = req.body.queryResult.parameters.subject1;
   var subject2 = req.body.queryResult.parameters.subject2;
   var date1 = req.body.queryResult.parameters.date1;
   var date2 = req.body.queryResult.parameters.date2;
