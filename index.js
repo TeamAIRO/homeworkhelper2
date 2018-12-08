@@ -176,7 +176,7 @@ restService.post("/hw", function(req, res) {
     req.body.queryResult &&
     req.body.queryResult.parameters &&
     req.body.queryResult.parameters.type1 
-      ? req.body.queryResult.parameters.type1
+      ? "check your calendar"
       : "Seems like some problem. Speak again.";
   
   /*** chirayu add */
