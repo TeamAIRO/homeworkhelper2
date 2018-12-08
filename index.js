@@ -106,11 +106,11 @@ var event = {
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
     'dateTime': today.getFullYear()+'-'+today.getMonth() + '-' + (today.getDate() + date1) + 'T019:00:00-07:00',
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/New_York',
   },
   'end': {
     'dateTime': today.getFullYear()+'-'+today.getMonth() + '-' + (today.getDate() + date1) + 'T019:00:00-07:00',
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/New_York',
   },
   'recurrence': [
     'RRULE:FREQ=DAILY;COUNT=2'
