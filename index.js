@@ -99,7 +99,7 @@ function writeEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
 
 var event = {
-  'summary': 'Google I/O 2015',
+  'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
