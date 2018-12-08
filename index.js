@@ -103,6 +103,8 @@ function writeEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
   var today = new Date();
   var date;
+  var event;
+  var event2;
   if(today.getDate() + date1 >= 10){
     date = today.getFullYear()+ '-' + (today.getMonth()+1) + '-' + (today.getDate() + date1) + 'T09:00:00-07:00';
   }
@@ -112,7 +114,7 @@ function writeEvents(auth) {
   let arr = [priority1, priority2]
   arr.sort();
   if(arr[0] = priority1){
-var event = {
+event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
@@ -139,7 +141,7 @@ var event = {
     ],
   },
 };
-var event2 = {
+event2 = {
   'summary': subject2,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
@@ -192,7 +194,7 @@ calendar.events.insert({
 
 }
 else{
-  var event = {
+  event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
@@ -219,7 +221,7 @@ else{
     ],
   },
 };
-var event2 = {
+event2 = {
   'summary': subject2,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
