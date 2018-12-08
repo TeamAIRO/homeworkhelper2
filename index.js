@@ -105,11 +105,11 @@ var event = {
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': today.getFullYear()+'-'+today.getMonth() + '12-08T019:00:00-07:00',
+    'dateTime': today.getFullYear()+'-'+today.getMonth() + '-' + (today.getDate() + date1) + 'T019:00:00-07:00',
     'timeZone': 'America/Los_Angeles',
   },
   'end': {
-    'dateTime': today.getFullYear()+'-'+today.getMonth() + '12-08T019:00:00-07:00',
+    'dateTime': today.getFullYear()+'-'+today.getMonth() + '-' + (today.getDate() + date1) + 'T019:00:00-07:00',
     'timeZone': 'America/Los_Angeles',
   },
   'recurrence': [
