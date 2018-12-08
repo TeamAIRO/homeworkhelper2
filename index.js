@@ -109,7 +109,7 @@ function writeEvents(auth) {
   else{
     date = today.getFullYear()+ '-' + (today.getMonth()+1) + '-0' + (today.getDate() + date1) + 'T09:00:00-07:00';
   }
-  let arr = [priority1, priority2]
+  let arr = [priority1, priority2];
   arr.sort();
 var event = {
   'summary': subject1,
