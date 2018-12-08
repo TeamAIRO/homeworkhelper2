@@ -168,7 +168,6 @@ event2 = {
     ],
   },
 };
-  }
 calendar.events.insert({
   auth: auth,
   calendarId: 'primary',
