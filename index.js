@@ -8,7 +8,6 @@ var subject1;
 var date1;
 var subject2;
 var date2;
-var priority1, priority2;
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
@@ -103,18 +102,13 @@ function writeEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
   var today = new Date();
   var date;
-  var event;
-  var event2;
   if(today.getDate() + date1 >= 10){
     date = today.getFullYear()+ '-' + (today.getMonth()+1) + '-' + (today.getDate() + date1) + 'T09:00:00-07:00';
   }
   else{
     date = today.getFullYear()+ '-' + (today.getMonth()+1) + '-0' + (today.getDate() + date1) + 'T09:00:00-07:00';
   }
-  let arr = [priority1, priority2]
-  arr.sort();
-  if(arr[0] == priority1){
-event = {
+var event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
@@ -141,7 +135,7 @@ event = {
     ],
   },
 };
-event2 = {
+var event2 = {
   'summary': subject2,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
@@ -190,85 +184,9 @@ calendar.events.insert({
   }
   console.log('Event created: %s', event2.htmlLink);
 });
-  }
-  else{
-  event = {
-  'summary': subject1,
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
-  'start': {
-    'dateTime': date1,
-    'timeZone': 'America/New_York',
-  },
-  'end': {
-    'dateTime': date1,
-    'timeZone': 'America/New_York', 
-  },
-  'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=2'
-  ],
-  'attendees': [
-    {'email': 'lpage@example.com'},
-    {'email': 'sbrin@example.com'},
-  ],
-  'reminders': {
-    'useDefault': false,
-    'overrides': [
-      {'method': 'email', 'minutes': 24 * 60},
-      {'method': 'popup', 'minutes': 10},
-    ],
-  },
-};
-event2 = {
-  'summary': subject2,
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
-  'start': {
-    'dateTime': date2,
-    'timeZone': 'America/New_York',
-  },
-  'end': {
-    'dateTime': date2,
-    'timeZone': 'America/New_York', 
-  },
-  'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=2'
-  ],
-  'attendees': [
-    {'email': 'lpage@example.com'},
-    {'email': 'sbrin@example.com'},
-  ],
-  'reminders': {
-    'useDefault': false,
-    'overrides': [
-      {'method': 'email', 'minutes': 24 * 60},
-      {'method': 'popup', 'minutes': 10},
-    ],
-  },
-};
-calendar.events.insert({
-  auth: auth,
-  calendarId: 'primary',
-  resource: event,
-}, function(err, event) {
-  if (err) {
-    console.log('There was an error contacting the Calendar service: ' + err);
-    return;
-  }
-  console.log('Event created: %s', event.htmlLink);
-});
-calendar.events.insert({
-  auth: auth,
-  calendarId: 'primary',
-  resource: event2,
-}, function(err, event2) {
-  if (err) {
-    console.log('There was an error contacting the Calendar service: ' + err);
-    return;
-  }
-  console.log('Event created: %s', event2.htmlLink);
-});
+
 }
+
 /* chirayu add */
 
 const restService = express();
@@ -292,39 +210,12 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/hw", function(req, res) {
-  var thisday = new Date();
   var type1 = req.body.queryResult.parameters.type1;
-  var num1;
-  if(type1 == "large project"){
-    num1 = 4;
-  }
-  else if(type1 == "small project"){
-    num1 = 3;
-  }
-  else{
-    num1 = 2;
-  }
   var type2 = req.body.queryResult.parameters.type2;
-  var num2;
-  if(type2 == "large project"){
-    num2 = 4;
-  }
-  else if(type2 == "small project"){
-    num2 = 3;
-  }
-  else{
-    num2 = 2;
-  }
   subject1 = req.body.queryResult.parameters.subject1;
   subject2 = req.body.queryResult.parameters.subject2;
   date1 = req.body.queryResult.parameters.date1;
   date2 = req.body.queryResult.parameters.date2;
-  var timeDiff1 = Math.abs(date1.getTime() - thisday.getTime());
-  var diffDays1 = Math.ceil(timeDiff1 / (1000 * 3600 * 24));
-  var timeDiff2 = Math.abs(date2.getTime() - thisday.getTime());
-  var diffDays2 = Math.ceil(timeDiff2 / (1000 * 3600 * 24));
-  priority1 = 4*diffDays1 - num1;
-  priority2 = 4*diffDays2 - num2;
   var speech =
     req.body.queryResult &&
     req.body.queryResult.parameters &&
@@ -364,7 +255,7 @@ restService.post("/echo", function(req, res) {
   // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
-  // a client with credentials, then call the Google Calendar API.
+  // Authorize a client with credentials, then call the Google Calendar API.
  
   //authorize(JSON.parse(content), listEvents);
 
