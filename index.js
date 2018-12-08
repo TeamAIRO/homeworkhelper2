@@ -301,6 +301,7 @@ restService.post("/hw", function(req, res) {
   }
   else if(type1 == "small project"){
     num1 = 3;
+  }
   else{
     num1 = 2;
   }
