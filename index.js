@@ -117,11 +117,11 @@ var event = {
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': date + 'T08:12:00-14:00',
+    'dateTime': date + 'T09:04:00-06:00',
     'timeZone': 'America/New_York',
   },
   'end': {
-    'dateTime': date + 'T08:12:00-06:00',
+    'dateTime': date + 'T09:04:00-06:00',
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
@@ -173,11 +173,11 @@ else{
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': date + 'T08:12:00-14:00',
+    'dateTime': date + 'T08:06:00-08:00',
     'timeZone': 'America/New_York',
   },
   'end': {
-    'dateTime': date + 'T09:12:00-14:00',
+    'dateTime': date + 'T08:06:00-08:00',
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
@@ -298,14 +298,12 @@ restService.post("/hw", function(req, res) {
   subject2 = req.body.queryResult.parameters.subject2;
   date1 = req.body.queryResult.parameters.date1;
   date2 = req.body.queryResult.parameters.date2;
-  //var timeDiff1 = Math.abs(date1.getTime() - thisday.getTime());
-  //var diffDays1 = Math.ceil(timeDiff1 / (1000 * 3600 * 24));
-  //var timeDiff2 = Math.abs(date2.getTime() - thisday.getTime());
-  //var diffDays2 = Math.ceil(timeDiff2 / (1000 * 3600 * 24));
-  //priority1 = 4*diffDays1 - num1;
-  //priority2 = 4*diffDays2 - num2;
-  priority1 = 2;
-  priority2 = 4;
+  var timeDiff1 = Math.abs(date1.now() - thisday.now());
+  var diffDays1 = Math.ceil(timeDiff1 / (1000 * 3600 * 24));
+  var timeDiff2 = Math.abs(date2.now() - thisday.now());
+  var diffDays2 = Math.ceil(timeDiff2 / (1000 * 3600 * 24));
+  priority1 = 4*diffDays1 - num1;
+  priority2 = 4*diffDays2 - num2;
   var speech =
     req.body.queryResult &&
     req.body.queryResult.parameters &&
