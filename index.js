@@ -298,9 +298,9 @@ restService.post("/hw", function(req, res) {
   subject2 = req.body.queryResult.parameters.subject2;
   date1 = req.body.queryResult.parameters.date1;
   date2 = req.body.queryResult.parameters.date2;
-  var timeDiff1 = Math.abs(date1.getDate() - thisday.getDate());
+  var timeDiff1 = Math.abs(parseFloat((date1.charAt(8) + date1.charAt(9))) - thisday.getDate());
   var diffDays1 = Math.ceil(timeDiff1);
-  var timeDiff2 = Math.abs(date2.getDate() - thisday.now());
+  var timeDiff2 = Math.abs(parseFloat((date2.charAt(8) + date2.charAt(9))) - thisday.getDate());
   var diffDays2 = Math.ceil(timeDiff2);
   priority1 = 4*diffDays1 - num1;
   priority2 = 4*diffDays2 - num2;
