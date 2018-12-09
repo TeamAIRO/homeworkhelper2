@@ -111,17 +111,17 @@ function writeEvents(auth) {
   }
   let arr = [priority1, priority2]
   arr.sort();
-  if(arr[0] == priority1){
+  if(arr[1] == priority1){
 var event = {
   'summary': subject1,
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': date + 'T09:04:00-06:00',
+    'dateTime': date + 'T08:04:00-06:00',
     'timeZone': 'America/New_York',
   },
   'end': {
-    'dateTime': date + 'T09:04:00-06:00',
+    'dateTime': date + 'T08:04:00-06:00',
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
@@ -144,11 +144,11 @@ var event2 = {
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': date + 'T09:06:00-08:00',
+    'dateTime': date + 'T08:06:00-08:00',
     'timeZone': 'America/New_York',
   },
   'end': {
-    'dateTime': date + 'T09:06:00-08:00',
+    'dateTime': date + 'T08:06:00-08:00',
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
@@ -200,11 +200,11 @@ var event2 = {
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': date + 'T09:04:00-06:00',
+    'dateTime': date + 'T08:04:00-06:00',
     'timeZone': 'America/New_York',
   },
   'end': {
-    'dateTime': date + 'T09:04:00-06:00', 
+    'dateTime': date + 'T08:04:00-06:00', 
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
