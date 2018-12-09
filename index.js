@@ -121,7 +121,7 @@ var event = {
     'timeZone': 'America/New_York',
   },
   'end': {
-    'dateTime': date + 'T08:04:00-06:00',
+    'dateTime': date + 'T08:05:00-07:00',
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
