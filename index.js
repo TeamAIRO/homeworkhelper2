@@ -308,7 +308,7 @@ restService.post("/hw", function(req, res) {
     req.body.queryResult &&
     req.body.queryResult.parameters &&
     req.body.queryResult.parameters.type1 
-      ? "check your calendar. You have ${subject1} and ${subject2} homework today."
+      ? `check your calendar. You have ${subject1} and ${subject2} homework today.`
       : "Seems like some problem. Speak again.";
   
   /*** chirayu add */
