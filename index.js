@@ -18,7 +18,7 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = 'a';
+const TOKEN_PATH = 'token.json';
 
 
 
@@ -52,12 +52,13 @@ function getAccessToken(oAuth2Client, callback) {
     access_type: 'offline',
     scope: SCOPES,
   });
+  console.log('Authorize this app by visiting this url:', authUrl);
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
   rl.question('Enter the code from that page here: ', (code) => {
-    
+    rl.close();
     oAuth2Client.getToken(code, (err, token) => {
       if (err) return console.error('Error retrieving access token', err);
       oAuth2Client.setCredentials(token);
@@ -68,7 +69,6 @@ function getAccessToken(oAuth2Client, callback) {
       });
       callback(oAuth2Client);
     });
-    rl.close();
   });
 }
 
@@ -308,7 +308,7 @@ restService.post("/hw", function(req, res) {
     req.body.queryResult &&
     req.body.queryResult.parameters &&
     req.body.queryResult.parameters.type1 
-      ? `check your calendar. You have ${subject1} and ${subject2} homework today.`
+      ? "check your calendar"
       : "Seems like some problem. Speak again.";
   
   /*** chirayu add */
