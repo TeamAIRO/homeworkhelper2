@@ -18,7 +18,7 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = '4/sgGUkXVOaXxISCbOgkKX6zsKyRGz63xfw-1O4Isg7F6bNqiorZk2vPM';
+const TOKEN_PATH = 'a';
 
 
 
