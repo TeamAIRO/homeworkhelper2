@@ -125,7 +125,7 @@ var event = {
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=2'
+    'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
     {'email': 'lpage@example.com'},
@@ -152,7 +152,7 @@ var event2 = {
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=2'
+    'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
     {'email': 'lpage@example.com'},
@@ -181,7 +181,7 @@ else{
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=2'
+    'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
     {'email': 'lpage@example.com'},
@@ -208,7 +208,7 @@ var event2 = {
     'timeZone': 'America/New_York', 
   },
   'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=2'
+    'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
     {'email': 'lpage@example.com'},
