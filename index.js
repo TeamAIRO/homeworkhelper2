@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-/* chirayu add */
+
 var subject1;
 var date1;
 var priority1, priority2;
@@ -153,7 +153,7 @@ calendar.events.insert({
 
 }
 
-/* chirayu add */
+
 
 const restService = express();
 
@@ -200,7 +200,6 @@ restService.post("/hw", function(req, res) {
       ? "check your calendar"
       : "Seems like some problem. Speak again.";
   
-  /*** chirayu add */
   // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
@@ -210,8 +209,7 @@ fs.readFile('credentials.json', (err, content) => {
 
   authorize(JSON.parse(content), writeEvents);
 });
-  
-/*chirayu add */
+
   
   
   return res.json({
@@ -228,7 +226,7 @@ restService.post("/echo", function(req, res) {
       ? req.body.queryResult.parameters.firstName + " " + req.body.queryResult.parameters.lastName
       : "Seems like some problem. Speak again.";
   
-  /*** chirayu add */
+ 
   // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
@@ -239,7 +237,7 @@ fs.readFile('credentials.json', (err, content) => {
   authorize(JSON.parse(content), writeEvents);
 });
   
-/*chirayu add */
+
   
   return res.json({
     fulfillmentText: speech,
