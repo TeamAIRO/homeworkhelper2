@@ -6,8 +6,6 @@ const bodyParser = require("body-parser");
 /* chirayu add */
 var subject1;
 var date1;
-var subject2;
-var date2;
 var priority1, priority2;
 const fs = require('fs');
 const readline = require('readline');
@@ -109,9 +107,7 @@ function writeEvents(auth) {
   else{
     date = today.getFullYear()+ '-' + (today.getMonth()+1) + '-0' + today.getDate();
   }
-  let arr = [priority1, priority2]
-  arr.sort();
-  if(arr[1] == priority1){
+
 var event = {
   'summary': subject1,
   'location': '',//'800 Howard St., San Francisco, CA 94103',
@@ -139,90 +135,9 @@ var event = {
     ],
   },
 };
-var event2 = {
-  'summary': subject2,
-  'location': '',//'800 Howard St., San Francisco, CA 94103',
-  'description': "Work on homework for " + subject2 + " at this time.",//'A chance to hear more about Google\'s developer products.',
-  'start': {
-    'dateTime': date + 'T08:06:00-08:00',
-    'timeZone': 'America/New_York',
-  },
-  'end': {
-    'dateTime': date + 'T08:06:00-08:00',
-    'timeZone': 'America/New_York', 
-  },
-  'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=1'
-  ],
-  'attendees': [
-    //{'email': 'lpage@example.com'},
-    //{'email': 'sbrin@example.com'},
-  ],
-  'reminders': {
-    'useDefault': false,
-    'overrides': [
-      {'method': 'email', 'minutes': 24 * 60},
-      {'method': 'popup', 'minutes': 10},
-    ],
-  },
-};
-  }
-else{
-  var event = {
-  'summary': subject2,
-  'location': '',//'800 Howard St., San Francisco, CA 94103',
-  'description': "Work on homework for " + subject2 + " at this time.",//'A chance to hear more about Google\'s developer products.',
-  'start': {
-    'dateTime': date + 'T08:06:00-08:00',
-    'timeZone': 'America/New_York',
-  },
-  'end': {
-    'dateTime': date + 'T08:06:00-08:00',
-    'timeZone': 'America/New_York', 
-  },
-  'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=1'
-  ],
-  'attendees': [
-    //{'email': 'lpage@example.com'},
-    //{'email': 'sbrin@example.com'},
-  ],
-  'reminders': {
-    'useDefault': false,
-    'overrides': [
-      {'method': 'email', 'minutes': 24 * 60},
-      {'method': 'popup', 'minutes': 10},
-    ],
-  },
-};
-var event2 = {
-  'summary': subject1,
-  'location': '',//'800 Howard St., San Francisco, CA 94103',
-  'description': "Work on homework for " + subject1 + " at this time.",//'A chance to hear more about Google\'s developer products.',
-  'start': {
-    'dateTime': date + 'T08:04:00-06:00',
-    'timeZone': 'America/New_York',
-  },
-  'end': {
-    'dateTime': date + 'T08:04:00-06:00', 
-    'timeZone': 'America/New_York', 
-  },
-  'recurrence': [
-    'RRULE:FREQ=DAILY;COUNT=1'
-  ],
-  'attendees': [
-    //{'email': 'lpage@example.com'},
-    //{'email': 'sbrin@example.com'},
-  ],
-  'reminders': {
-    'useDefault': false,
-    'overrides': [
-      {'method': 'email', 'minutes': 24 * 60},
-      {'method': 'popup', 'minutes': 10},
-    ],
-  },
-};
-}
+
+
+
 calendar.events.insert({
   auth: auth,
   calendarId: 'primary',
@@ -234,17 +149,7 @@ calendar.events.insert({
   }
   console.log('Event created: %s', event.htmlLink);
 });
-calendar.events.insert({
-  auth: auth,
-  calendarId: 'primary',
-  resource: event2,
-}, function(err, event2) {
-  if (err) {
-    console.log('There was an error contacting the Calendar service: ' + err);
-    return;
-  }
-  console.log('Event created: %s', event2.htmlLink);
-});
+
 
 }
 
@@ -283,27 +188,11 @@ restService.post("/hw", function(req, res) {
   else{
     num1 = 2;
   }
-  var type2 = req.body.queryResult.parameters.type2;
-  var num2;
-  if(type2 == "large project"){
-    num2 = 4;
-  }
-  else if(type2 == "small project"){
-    num2 = 3;
-  }
-  else{
-    num2 = 2;
-  }
   subject1 = req.body.queryResult.parameters.subject1;
-  subject2 = req.body.queryResult.parameters.subject2;
   date1 = req.body.queryResult.parameters.date1;
-  date2 = req.body.queryResult.parameters.date2;
   var timeDiff1 = Math.abs(parseFloat((date1.charAt(8) + date1.charAt(9))) - thisday.getDate());
   var diffDays1 = Math.ceil(timeDiff1);
-  var timeDiff2 = Math.abs(parseFloat((date2.charAt(8) + date2.charAt(9))) - thisday.getDate());
-  var diffDays2 = Math.ceil(timeDiff2);
-  priority1 = 4*diffDays1 - num1;
-  priority2 = 4*diffDays2 - num2;
+
   var speech =
     req.body.queryResult &&
     req.body.queryResult.parameters &&
