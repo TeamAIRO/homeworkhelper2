@@ -114,8 +114,8 @@ function writeEvents(auth) {
   if(arr[1] == priority1){
 var event = {
   'summary': subject1,
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
+  'location': '',//'800 Howard St., San Francisco, CA 94103',
+  'description': "Work on homework for" + subject1 + "at this time.",//'A chance to hear more about Google\'s developer products.',
   'start': {
     'dateTime': date + 'T08:04:00-06:00',
     'timeZone': 'America/New_York',
@@ -128,8 +128,8 @@ var event = {
     'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
-    {'email': 'lpage@example.com'},
-    {'email': 'sbrin@example.com'},
+    //{'email': 'lpage@example.com'},
+    //{'email': 'sbrin@example.com'},
   ],
   'reminders': {
     'useDefault': false,
@@ -141,8 +141,8 @@ var event = {
 };
 var event2 = {
   'summary': subject2,
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
+  'location': '',//'800 Howard St., San Francisco, CA 94103',
+  'description': "Work on homework for" + subject2 + "at this time.",//'A chance to hear more about Google\'s developer products.',
   'start': {
     'dateTime': date + 'T08:06:00-08:00',
     'timeZone': 'America/New_York',
@@ -155,8 +155,8 @@ var event2 = {
     'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
-    {'email': 'lpage@example.com'},
-    {'email': 'sbrin@example.com'},
+    //{'email': 'lpage@example.com'},
+    //{'email': 'sbrin@example.com'},
   ],
   'reminders': {
     'useDefault': false,
@@ -170,8 +170,8 @@ var event2 = {
 else{
   var event = {
   'summary': subject2,
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
+  'location': '',//'800 Howard St., San Francisco, CA 94103',
+  'description': "Work on homework for" + subject2 + "at this time.",//'A chance to hear more about Google\'s developer products.',
   'start': {
     'dateTime': date + 'T08:06:00-08:00',
     'timeZone': 'America/New_York',
@@ -184,8 +184,8 @@ else{
     'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
-    {'email': 'lpage@example.com'},
-    {'email': 'sbrin@example.com'},
+    //{'email': 'lpage@example.com'},
+    //{'email': 'sbrin@example.com'},
   ],
   'reminders': {
     'useDefault': false,
@@ -197,8 +197,8 @@ else{
 };
 var event2 = {
   'summary': subject1,
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
+  'location': '',//'800 Howard St., San Francisco, CA 94103',
+  'description': "Work on homework for" + subject1 + "at this time.",//'A chance to hear more about Google\'s developer products.',
   'start': {
     'dateTime': date + 'T08:04:00-06:00',
     'timeZone': 'America/New_York',
@@ -211,8 +211,8 @@ var event2 = {
     'RRULE:FREQ=DAILY;COUNT=1'
   ],
   'attendees': [
-    {'email': 'lpage@example.com'},
-    {'email': 'sbrin@example.com'},
+    //{'email': 'lpage@example.com'},
+    //{'email': 'sbrin@example.com'},
   ],
   'reminders': {
     'useDefault': false,
